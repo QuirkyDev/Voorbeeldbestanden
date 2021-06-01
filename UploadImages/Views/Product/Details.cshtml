@@ -1,0 +1,37 @@
+﻿@using UploadImages.ViewModels;
+@model ProductDetailsViewModel;
+@{
+    ViewData["Title"] = "Productdetails";
+}
+
+<h1>
+    Productdetails
+</h1>
+<table>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Product.ProductID)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Product.ProductID)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Product.Naam)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Product.Naam)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Product.Bestandsnaam)
+        </td>
+        <td>
+            <img src="@("~/Images/"+ Model.Product.Bestandsnaam)" asp-append-version="true" width="250" height="250" />
+        </td>
+    </tr>
+</table>
+
+<a asp-action="Index">Terug naar overzicht</a>

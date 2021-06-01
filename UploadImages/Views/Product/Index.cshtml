@@ -1,0 +1,39 @@
+﻿@using UploadImages.ViewModels;
+@model ProductOverviewViewModel;
+@{
+    ViewData["Title"] = "Overzicht producten";
+}
+<h1>
+    Overzicht producten
+</h1>
+<a asp-action="Create">Nieuw product toevoegen</a>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Producten[0].ProductID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Producten[0].Naam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Producten[0].Bestandsnaam)
+        </th>
+    </tr>
+    @foreach (var product in Model.Producten)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => product.ProductID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => product.Naam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => product.Bestandsnaam)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@product.ProductID">Details</a>
+            </td>
+        </tr>
+    }
+</table>
